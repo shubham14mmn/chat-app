@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Real Time Chat Application (MERN + Socket.io)
 
 A beginner-friendly full-stack real time chat app built with:
@@ -94,3 +95,6 @@ Frontend runs at: `http://localhost:5173`
 7. Files (images/videos/PDFs) are uploaded to **Cloudinary**, only the URL is stored in MongoDB.
 
 Enjoy! 
+=======
+# chat-app
+>>>>>>> a03b7fd4ea1ffa9aa3c61bc51157871c8c4cb122
