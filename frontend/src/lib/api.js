@@ -2,8 +2,11 @@ import axios from "axios";
 
 const api = axios.create({
 baseURL:
-import.meta.env.VITE_API_URL ||
-"https://chat-app-02lt.onrender.com/api",
+import.meta.env.MODE === "development"
+? "http://localhost:5000/api"
+: "https://chat-app-02lt.onrender.com/api",
+
+withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
