@@ -21,7 +21,10 @@ app.use(cookieParser());
 // FIXED CORS
 app.use(
 cors({
-origin: "http://localhost:5173",
+origin: [
+"http://localhost:5173",
+"https://chat-app-iota-seven-7l.vercel.app",
+],
 credentials: true,
 })
 );
