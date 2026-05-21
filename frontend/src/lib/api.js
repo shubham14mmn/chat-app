@@ -1,17 +1,19 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+baseURL:
+import.meta.env.VITE_API_URL ||
+"https://chat-app-02lt.onrender.com/api",
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+if (token) {
+config.headers.Authorization = `Bearer ${token}`;
+}
 
-  return config;
+return config;
 });
 
 export default api;
