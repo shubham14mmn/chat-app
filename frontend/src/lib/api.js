@@ -1,22 +1,24 @@
+
 import axios from "axios";
 
 const api = axios.create({
-baseURL:
-import.meta.env.MODE === "development"
-? "http://localhost:5000/api"
-: "https://chat-app-02lt.onrender.com/api",
+  baseURL:
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : import.meta.env.VITE_API_URL,
 
-withCredentials: true,
+  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
-const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-if (token) {
-config.headers.Authorization = `Bearer ${token}`;
-}
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-return config;
+  return config;
 });
 
 export default api;
+
