@@ -30,6 +30,8 @@ export default function Sidebar({ selected, onSelect, unread, refreshUnread }) {
     return () => clearTimeout(t);
   }, [search]);
 
+  console.log("ONLINE USERS:", onlineUsers);
+
   return (
     <aside className="w-full sm:w-80 border-r dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col h-full">
       {/* Header with my profile */}

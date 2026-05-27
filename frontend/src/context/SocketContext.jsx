@@ -18,11 +18,16 @@ export const SocketProvider = ({ children }) => {
     }
 
     const s = io(import.meta.env.VITE_API_URL || "http://localhost:5000", {
-      query: { userId: user._id },
-    });
+  query: { userId: user._id },
+  withCredentials: true,
+  });
     setSocket(s);
-
-    s.on("onlineUsers", (users) => setOnlineUsers(users));
+    
+// ONLINE USERS LISTENER
+    s.on("onlineUsers", (users) => {
+  console.log("ONLINE USERS:", users);
+  setOnlineUsers(users);
+});
 
     return () => s.disconnect();
     // eslint-disable-next-line
